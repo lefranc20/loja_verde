@@ -1,6 +1,6 @@
 # loja_verde
 
-Atividades
+Atividades <br/>
 [ ] Criar o banco de dados da Loja <br/>
 [ ] Criar a estrutura de pastas do projeto <br/>
 [ ] Adicionar o framework de CSS <br/>
