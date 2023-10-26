@@ -1,13 +1,13 @@
 <?php
-namespace Application\core;
+namespace application\core;
 class Controller{
 	public function model($model){
-		require '../Application/models/'. $model. '.php';
-			$classe = 'Application/models\\' . $model;
+		require '../application/models/'. $model. '.php';
+			$classe = 'application/models\\' . $model;
 			return new $classe();
 	}
 	public function view(string $view, $data = []){
-		require '../Application/views/'. $view . 'php';
+		require '../application/views/'. $view . '.php';
 	}
 	
 	public function pageNotFound(){

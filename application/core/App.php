@@ -1,5 +1,5 @@
 <?php
-namespace Application\core;
+namespace application\core;
 class App{
     protected $controller = 'HomeController';
     protected $method = 'index';
@@ -17,17 +17,18 @@ class App{
 
     private function parseUrl(){
         $REQUEST_URI = explode('/', substr(filter_input(INPUT_SERVER, 'REQUEST_URI'), 1));
+		return $REQUEST_URI;
     }
 
     private function getControllerFromUrl($url){
         if(!empty($url[0]) && isset($url[0])){
-            if(file_exists('../Application/controllers/' . ucfirst($url[0]) . 'Controller.php') ){
+            if(file_exists('../application/controllers/' . ucfirst($url[0]) . 'Controller.php') ){
                 $this->controller = ucfirst($url[0]).'Controller';
             }else{
                 $this->page404 = true;
             }
         }        
-        require_once '../Application/controllers/'.$this->controller . '.php';
+        require_once '../application/controllers/'.$this->controller . '.php';
         $this->controller = new $this->controller();
     }            
     private function getMethodFromUrl($url){
