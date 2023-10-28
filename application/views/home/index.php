@@ -1,7 +1,7 @@
 <?php getcwd() ?>
 <?php 
 	$base = __DIR__;
-	debug_print_backtrace();
+	// debug_print_backtrace();
 	include $base .'\..\layout\menu.php';
 ?>
 <html>
