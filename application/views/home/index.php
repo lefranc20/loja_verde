@@ -1,17 +1,15 @@
-<?php getcwd() ?>
-<?php 
-	$base = __DIR__;
-	// debug_print_backtrace();
-	include $base .'\..\layout\menu.php';
-?>
+<?php
+$base = __DIR__;
+include $base .'\..\layout\menu.php'; 
+//debug_print_backtrace();
+ ?>
 <html>
-	<head>
-	
-	</head>
-	
-	<body>
-		<h1> Bem-Vindo </h1>
-		<hr />
-		<p> Minha Página </p>
-	</body>
+<head>
+
+</head>
+<body>
+    <h1> Bem-Vindo </h1>
+    <hr />
+    <p> Minha Página </p>
+</body>
 </html>

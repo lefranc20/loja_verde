@@ -1,7 +1,7 @@
 <?php
 
 class ProdutoDAO{
-    // CRUD
+   
     // Create (C)
     public function salvar($produto){}
     public function pegaTodos(){}
@@ -11,6 +11,8 @@ class ProdutoDAO{
     public function atualizar($produto){}
     // Delete (D)
     public function apagar($id){}
+
 }
+
 
 ?>
