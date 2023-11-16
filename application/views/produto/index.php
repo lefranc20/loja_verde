@@ -8,10 +8,9 @@ include $base .'\..\layout\menu.php';
 
 </head>
 <body>
-    <h1> Listar Produtos </h1>
-
-    <hr />
-    <p> <a href="/produto/cadastrarProduto"> Adicionar Produto  </a> </p>
+	<h1> Listar Produtos </h1>
+	<hr/>
+	<p> <a href="/produto/cadastrar"> Adicionar Produto  </a> </p>
 </body>
 </html>
 

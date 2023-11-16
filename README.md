@@ -27,4 +27,3 @@ Atividades <br/>
 - [ ] Efeturar Login do Usuário [1.0] <br/>
 - [ ] Listar Produtos Na Página Inicial [1.0] <br/>
 - [ ] Listar Produtos com Imagem [2.0] <br/>
-

@@ -17,8 +17,5 @@ class ProdutoController extends Controller{
         print_r($marca);
        
     }
-    
-
-
-
+}
 ?>
