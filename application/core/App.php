@@ -8,11 +8,14 @@ class App{
     protected $page404 = false;
     protected $params = [];
 
+	// Método construtor
     public function __construct(){
         $URL_ARRAY = $this->parseUrl();
         $this->getControllerFromUrl($URL_ARRAY);
         $this->getMethodFromUrl($URL_ARRAY);
         $this->getParamsFromUrl($URL_ARRAY);
+		
+	// chama um método de uma classe passando os parâmetros
 		call_user_func_array([$this->controller, $this->method], $this->params);    
 	}
 	
@@ -39,6 +42,7 @@ class App{
 			if(method_exists($this->controller, $url[1]) && !$this->page404){
 				$this->method = $url[1];
 			}else{
+				// caso a classe ou o método informado não exista, o método pageNotFound do controlador é chamado.
 				$this->method = 'pageNotFound';
 			}
 		}
