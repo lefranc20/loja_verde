@@ -5,11 +5,13 @@
 </head>
     <body>
     <?php 
-		//define('BASE', dirname(__DIR__) . '/');
-		require_once '../Application/core/autoload.php';
-		use Application\core\App;
-		use Application\core\Controller;
-		$app = new App();
+    //define('BASE', dirname(__DIR__) . '/');
+    require_once '../Application/core/autoload.php';
+    use Application\core\App;
+    use Application\core\Controller;
+    $app = new App();
+
+   
     ?>
     </body>
 </html>
