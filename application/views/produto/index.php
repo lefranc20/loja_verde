@@ -32,6 +32,7 @@ include $base . '\..\layout\menu.php';
 <a href="/produto/iniciarEditar/<?= $produto->getCodigo() ?>">
     EDITAR
     </a>
+	
  </td>
         </tr>
             <?php } ?>
