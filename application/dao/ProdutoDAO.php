@@ -51,33 +51,35 @@ $produto = new Produto($row["nome"], $row["marca"], $row["preco"]);
     }
     // Update (U)
     public function atualizar($produto){
-		
-		// Criar a conexao
-		$conexao = new Conexao();
-		$conn = $conexao->getConexao();
-		// pega os dados
-		$codigo = $produto->getCodigo();
-		$nome = $produto->getNome();
-		$preco  = $produto->getPreco();
-		
-		$SQL = "UPDATE produtos SET nome = '$nome', marca = '$marca', preco = '$preco' WHERE codigo =". $codigo;
-		
-		if($conn->query($SQL) === TRUE){
-			return $this->findById($codigo);
-		}
-		
-		return false;
-	}
+
+        // Criar o conexao
+        $conexao = new Conexao();
+        $conn = $conexao->getConexao();
+        // pega os dados
+        $codigo = $produto->getCodigo();
+        $nome = $produto->getNome();
+        $marca = $produto->getMarca();
+        $preco = $produto->getPreco();
+  $SQL = "UPDATE produtos SET nome = '$nome', marca = '$marca',
+   preco = '$preco' WHERE codigo =". $codigo; 
+
+if($conn->query($SQL) === TRUE){  
+    return $this->findById($codigo);
+}
+print_r("Error: ". $SQL. "<br />".$conn->error);
+        return $produto;
+    }
     // Delete (D)
-    public function apagar($id){
-		$conexao = new Conexao();
-		$conn = $conexao->getConexao();
-		
-		// query do SQL sendo executada pelo PHP
-		$SQL = "DELETE FROM produtos WHERE codigo = ".$id;
-		
-		
-	}
+    public function deletar($id){
+ $conexao = new Conexao();
+ $conn = $conexao->getConexao();
+
+ $SQL = "delete from produtos where codigo = ".$id;
+ if($conn->query($SQL) === TRUE){
+    return true;
+ }
+ return false;
+    }
 
 }
 
