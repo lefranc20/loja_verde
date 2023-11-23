@@ -6,6 +6,6 @@
     <a class="nav-link" href="/produto/"> Produto</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#"> Usuário </a>
+    <a class="nav-link" href="/login/"> Login </a>
   </li>
 </ul>

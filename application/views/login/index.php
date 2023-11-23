@@ -4,11 +4,7 @@
 	debug_print_backtrace();
 ?>
 <html>
-	<head>
-	</head>
-	<body>
-		<h1> Bem-Vindo </h1>
-		<hr />
-		<p> Minha Página </p>
-	</body>
+<body>
+	<h1>Teste</h1>
+</body>
 </html>
