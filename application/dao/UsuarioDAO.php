@@ -1,3 +1,4 @@
+<?php
 // UsuarioDAO.php
 require_once 'Conexao.php';
 require_once 'UsuarioModel.php';
@@ -31,3 +32,4 @@ class UsuarioDAO {
     }
 
 }
+?>
