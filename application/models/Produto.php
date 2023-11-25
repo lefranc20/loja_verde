@@ -16,8 +16,13 @@ public function __construct($nome, $marca,$preco){
     public function getCodigo(){
         return $this->codigo;
     }
-    public function getNome(){return $this->nome;}
-
-    public function getMarca(){return $this->marca;}
-    public function getPreco(){return $this->preco;}
+    public function getNome(){
+		return $this->nome;
+	}
+    public function getMarca(){
+		return $this->marca;
+	}
+    public function getPreco(){
+		return $this->preco;
+	}
 }

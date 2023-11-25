@@ -17,11 +17,11 @@
 <div class="container">
   <h2>Cadastrar</h2>
   <br>
-  <form class="form-horizontal" action="../action_page.php" method="POST">
+  <form class="form-horizontal" action="/usuario/cadastrarUsuario.php" method="POST">
     <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Nome de Usuário:</label>
+      <label class="control-label col-sm-2" for="nome-Usuario">Nome de Usuário:</label>
       <div class="col-sm-5">
-        <input type="usuario" class="form-control" id="usuario" placeholder="Usuario" name="usuario" required>
+        <input type="text" class="form-control" id="usuario" placeholder="Usuario" name="usuarioNome" required>
       </div>
     </div>
 	<div class="form-group">
@@ -32,7 +32,7 @@
     </div>
 	<br>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Senha:</label>
+      <label class="control-label col-sm-2" for="senha">Senha:</label>
       <div class="col-sm-5">          
         <input type="password" class="form-control" id="senha" placeholder="Senha" name="senha" required>
       </div>
@@ -40,13 +40,13 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="senha">Insira a senha novamente:</label>
       <div class="col-sm-5">          
-        <input type="password" class="form-control" id="senha" placeholder="Confirmar Senha" name="senha" required>
+        <input type="password" class="form-control" id="senha" placeholder="Confirmar Senha" name="senhaRepetir" required>
       </div>
     </div>
 	<br>
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
       </div>
     </div>
   </form>
