@@ -27,7 +27,7 @@ class ProdutoController extends Controller{
 		$produtoDAO = new ProdutoDAO();
 		$produtoDAO->salvar($produto);
 
-		$this->view('produto/cadastrar', ["msg" => "Sucesso"]);
+		$this->view('produto/cadastrar', ["msg" => "Produto inserido com Sucesso"]);
 	}
 
 	public function iniciarEditar($codigo){

@@ -1,13 +1,4 @@
 <!-- Página de Login -->
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
 <?php
     $base = __DIR__;
     include $base .'\..\layout\menu.php'; 
@@ -18,11 +9,11 @@
 
 <div class="container">
   <h2>Login</h2>
-  <form class="form-horizontal" action="/action_page.php">
+  <form class="form-horizontal" action="/usuario/loginUsuario">
     <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Email:</label>
+      <label class="control-label col-sm-2" for="text">Nome de Usuário:</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" id="email" placeholder="Email / Nome de Usuário" name="email-nomeUsuario">
+        <input type="text" class="form-control" id="nomeUsuario" placeholder="Nome" name="nomeUsuario">
       </div>
     </div>
     <div class="form-group">
