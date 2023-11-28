@@ -1,8 +1,6 @@
 <?php
 
-use Application\core\Controller;
-use Application\dao\ProdutoDAO;
-use Application\models\Produto;
+,
 
 class ProdutoController extends Controller{
 	public function index(){

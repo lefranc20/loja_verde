@@ -9,6 +9,7 @@ include $base .'\..\layout\menu.php';
 </head>
 <body>
     <h1> Bem-Vindo </h1>
-    <hr />
+    <hr/>
+	<h3> Alguns Produtos em Destaque </h3>
 </body>
 </html>

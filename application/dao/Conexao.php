@@ -3,7 +3,7 @@ namespace Application\dao;
 class Conexao{
 	private $dbName = "loja";
 	private $usuario = "root";
-	private $senha = "sucesso";
+	private $senha = "leonardo12";
 	private $host = "localhost";
 	
 	// carrega a conexão realizada com banco
