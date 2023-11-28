@@ -42,6 +42,6 @@
 
 <hr>
 
-<p>Caso não tenha um login, se <a href='/usuario/cadastro/'/><b>Cadastre aqui</b></a></p>
+<p>Caso não tenha um login, se <a href='/usuario/cadastrar/'/><b>Cadastre aqui</b></a></p>
 </body>
 </html>

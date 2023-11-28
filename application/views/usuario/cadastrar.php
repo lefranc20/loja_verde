@@ -11,17 +11,21 @@
     include $base .'\..\layout\menu.php'; 
     //debug_print_backtrace();
  ?>
- 
+ <?php 
+    if(isset($data["msg-cadastrado"])){
+?>
+<div class="alert alert-success" role="alert"> Sucesso </div>
+	<?php } ?>
 <hr />
 
 <div class="container">
   <h2>Cadastrar</h2>
   <br>
-  <form class="form-horizontal" action="/usuario/cadastrarUsuario.php" method="POST">
+  <form class="form-horizontal" action="/usuario/cadastrarUsuario" method="POST">
     <div class="form-group">
       <label class="control-label col-sm-2" for="nome-Usuario">Nome de Usuário:</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" id="usuario" placeholder="Usuario" name="usuarioNome" required>
+        <input type="text" class="form-control" id="usuario" placeholder="Usuario" name="nomeUsuario" required>
       </div>
     </div>
 	<div class="form-group">
