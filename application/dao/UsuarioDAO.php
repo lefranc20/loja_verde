@@ -35,7 +35,7 @@ class UsuarioDAO {
 		while($row = $result->fetch_assoc()){
 			$usuario = new Usuario($row["nomeUsuario"], $row["senha"], $row["email"]);
 			$usuario->setId($row["id"]);
-			array_push($usuarios, $usuarios);
+			array_push($usuarios, $usuario);
 		}
 		return $usuarios;
     }
@@ -76,7 +76,7 @@ class UsuarioDAO {
 		$conexao = new Conexao();
 		$conn = $conexao->getConexao();
 
-		$SQL = "delete from produtos where id = ".$id;
+		$SQL = "delete from usuarios where id = ".$id;
 		if($conn->query($SQL) === TRUE){
 			return true;
 		}

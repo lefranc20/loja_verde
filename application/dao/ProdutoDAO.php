@@ -43,10 +43,10 @@ class ProdutoDAO{
     }
 	
 	// Retrieve (R)
-	public function findById($id){
+	public function findById($codigo){
 		$conexao = new Conexao();
 		$conn = $conexao->getConexao();
-		$SQL = "SELECT * FROM produtos WHERE codigo =".$id;
+		$SQL = "SELECT * FROM produtos WHERE codigo =".$codigo;
 		$result = $conn->query($SQL);
 		$row = $result->fetch_assoc();
 		$produto = new Produto($row["nome"], $row["marca"], $row["preco"]);
@@ -74,18 +74,15 @@ class ProdutoDAO{
 	}
 	
 	// Delete (D)
-	public function deletar($id){
+	public function deletar($codigo){
 		$conexao = new Conexao();
 		$conn = $conexao->getConexao();
 
-		$SQL = "delete from produtos where codigo = ".$id;
+		$SQL = "delete from produtos where codigo = ".$codigo;
 		if($conn->query($SQL) === TRUE){
 			return true;
 		}
 		return false;
 	}
-
 }
-
-
 ?>

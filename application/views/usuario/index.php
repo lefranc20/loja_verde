@@ -1,38 +1,47 @@
-<!-- Página de Login -->
 <?php
-    $base = __DIR__;
-    include $base .'\..\layout\menu.php'; 
-    //debug_print_backtrace();
- ?>
- 
-<hr />
+	$base = __DIR__;
+	include $base . '\..\layout\menu.php';
+?>
+<html>
 
-<div class="container">
-  <h2>Login</h2>
-  <form class="form-horizontal" action="/usuario/loginUsuario">
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="text">Nome de Usuário:</label>
-      <div class="col-sm-5">
-        <input type="text" class="form-control" id="nomeUsuario" placeholder="Nome" name="nomeUsuario">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Senha:</label>
-      <div class="col-sm-5">          
-        <input type="password" class="form-control" id="pwd" placeholder="Insira a Senha" name="senha">
-      </div>
-    </div>
-	<br>
-    <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">Login</button>
-      </div>
-    </div>
-  </form>
-</div>
+<head>
+</head>
 
-<hr>
-
-<p>Caso não tenha um login, se <a href='/usuario/cadastrar/'/><b>Cadastre aqui</b></a></p>
+<body>
+	<h1> Usuários cadastrados no sistema </h1>
+	<hr/>
+	<?php if( isset($data['msg'])){ ?> 
+		<div class="alert alert-danger" role="alert"> Sucesso </div>
+	<?php } ?>
+	<p> <a href="/usuario/cadastrar"> Adicionar Usuario </a> </p>
+	<table class="table">
+		<thead>
+			<th>Id</th>
+			<th>Nome</th>
+			<th>Senha</th>
+			<th>Email</th>
+			<th>Ações</th>
+		</thead>
+		<tbody>
+		<?php foreach ($data['usuarios'] as $usuario) { ?>
+			<tr>
+				<td><?= $usuario->getId() ?> </td>
+				<td><?= $usuario->getNomeUsuario() ?> </td>
+				<td><?= $usuario->getSenha() ?> </td>
+				<td><?= $usuario->getEmail() ?> </td>
+				<td>
+				<a href="/usuario/iniciarEditar/<?= $usuario->getId() ?>">EDITAR</a>
+				<span>
+					<form action="/usuario/deletar" method="POST"> 
+						<input type="hidden" value="<?= $usuario->getId() ?>" name="id" />
+						<input type="submit" value="X" />
+					</form> 
+				</span>
+				</td>
+			</tr>
+		<?php } ?>
+		</tbody>
+	</table>
 </body>
+
 </html>
