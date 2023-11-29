@@ -1,36 +1,44 @@
-<?php 
-namespace Application\models;
-// Model para Usuário
-class Usuario {
-    private $id;
-    private $nomeUsuario;
-    private $senha;
-    private $email;
+<?php
 
-    public function __construct($nomeUsuario, $senha, $email) {
-        $this->nomeUsuario = $nomeUsuario;
-        $this->senha = $senha;
+namespace Application\models;
+
+class Usuario {
+    private $codigo;
+    private $nome;
+    private $cpf;
+    private $email;
+    private $senha;
+
+
+    public function __construct($nome, $cpf, $email, $senha) {
+        $this->nome = $nome;
+        $this->cpf = $cpf;
         $this->email = $email;
+        $this->senha = $senha;
     }
-	
-    public function setId($id) {
-        $this->id = $id;
+
+    public function setCodigo($codigo) {
+        $this->codigo = $codigo;
     }
-	
-    public function getId() {
-        return $this->id;
+
+    public function getCodigo() {
+        return $this->codigo;
     }
-	
-    public function getNomeUsuario() {
-        return $this->nomeUsuario;
+
+    public function getNome() {
+        return $this->nome;
     }
-	
-    public function getSenha() {
-        return $this->senha;
+
+    public function getCpf() {
+        return $this->cpf;
     }
-	
+
     public function getEmail() {
         return $this->email;
+    }
+
+    public function getSenha() {
+        return $this->senha;
     }
 }
 ?>

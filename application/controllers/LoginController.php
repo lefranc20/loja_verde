@@ -1,66 +1,58 @@
 <?php
 
+session_start();
 use Application\core\Controller;
 use Application\dao\UsuarioDAO;
 use Application\models\Usuario;
+use Application\dao\ProdutoDAO;
+use Application\models\Produto;
 
-class LoginController {
-    private $usuarioDAO;
+class LoginController extends Controller
+{
 
-    public function __construct() {
-        $this->usuarioDAO = new UsuarioDAO();
+    public function index()
+    {
+        $this->view('login/index');
     }
 
-    public function index() {
-        // Exibe o formulário de index.php do login. Redireciona para ele.
-        include 'login/index.php';
-    }
+    public function autenticar_login()
+    {
+        $login = $_POST['email'];
+        $senha_login = $_POST['senha'];
 
-    public function processaLogin() {
-        // Manipula o login pela submissão do formulário no index.html
-        $nomeUsuario = $_POST['nomeUsuario'];
-        $senha = $_POST['senha'];
 
-        $usuarioDAO = $this->usuarioDAO->getNomeUsuario($nomeUsuario);
+        $usuarioDAO = new UsuarioDAO();
+        $usuario = $usuarioDAO->buscarPorEmailOrCpf($login);
 
-        // Checa se o usuário existe e a senha está correta
-        if ($usuario && password_verify($password, $usuario->getSenha())) {
-            // Login válido, define a variável de sessão
+        if (!$usuario) {
+            $this->view('/login/index', ["msg-invalido" => "Credenciais inválidas"]);
+            return;
+        }
+
+        $senha_usuario = $usuario->getSenha();
+
+        if ($usuario && $senha_usuario == $senha_login) {
             $_SESSION['usuario'] = $usuario;
-            header('Location: index.php');
+            $_SESSION['logado'] =  $login;
+
+            $produtoDAO = new ProdutoDAO();
+            $produtos = $produtoDAO->findAll();
+
+            $this->view('/home/index', ["msg-valido" => "Logado com sucesso!", "produtos" => $produtos]);
         } else {
-            // // Login inválido, exibe uma mensagem de erro
-            echo "Nome de usuário ou Senha inválidas";
+            $_SESSION['logado'] = false;
+            $this->view('/login/index', ["msg-invalido" => "Credenciais inválidas"]);
         }
     }
 
-    public function cadastro() {
-        // Exibe o formulário de cadastro
-        include 'login/cadastro.php';
-    }
-
-    public function processaCadastro() {
-        // Manipula o cadastro pela submissão do formulário no cadastro.html
-        $nomeUsuario = $_POST['nomeUsuario'];
-        $senha = $_POST['senha'];
-		
-        // Performa uma validação e lógica de registro
-
-        // Cria uma hash criptografica da senha antes de salvá-la para a base de dados. O método password_hash é interno ao php
-        $hashSenha = password_hash($senha, PASSWORD_DEFAULT);
-
-        // Cria um novo usuário no banco de dados
-        $this->usuarioDAO->cadastrarUsuario($nomeUsuario, $hashSenha);
-
-        // Redireciona para a página inicial após o cadastro com sucesso
-        header('Location: index.php?action=login');
-    }
-
-    public function logout() {
-        // Desconecta o usuário destruindo a sessão
-        session_destroy();
-        header('Location: index.php');
+    public function logout()
+    {
+        if (isset($_SESSION)) {
+            session_unset();
+            session_destroy();
+            $this->view('/login/index', ["msg-logout" => "Deslogado com sucesso!"]);
+        }
+        
     }
 }
-
 ?>
