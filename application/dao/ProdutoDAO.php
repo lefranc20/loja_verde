@@ -10,7 +10,7 @@ class ProdutoDAO
     public function __construct()
     {
         try {
-            $this->conexao = new \PDO("mysql:host=localhost;dbname=loja", "root", "leonardo12");
+            $this->conexao = new \PDO("mysql:host=localhost;dbname=loja", "root", "sucesso");
             $this->conexao->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {
             echo "Erro na conexão: " . $e->getMessage();
@@ -40,8 +40,7 @@ class ProdutoDAO
         }
     }
 
-    public function findAll()
-    {
+    public function findAll(){
         try {
             $stmt = $this->conexao->query("SELECT * FROM produtos");
             $produtos = [];
@@ -59,8 +58,7 @@ class ProdutoDAO
         }
     }
 
-    public function findById($id)
-    {
+    public function findById($id){
         try {
             $stmt = $this->conexao->prepare("SELECT * FROM produtos WHERE codigo = :id");
             $stmt->bindParam(':id', $id);

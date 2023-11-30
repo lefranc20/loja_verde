@@ -149,7 +149,7 @@ class UsuarioDAO {
             return false;
         }
     }
-
+	
     // Autenticação
     // public function autenticar($email, $senha) {
     //     $conexao = new Conexao();
