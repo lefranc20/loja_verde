@@ -49,7 +49,7 @@
         border-radius: 4px;
     }
 
-    input[type="submit"] {
+    input[type="submit"] { /* Apenas para o submit */
         background-color: #4caf50;
         color: #fff;
         cursor: pointer;

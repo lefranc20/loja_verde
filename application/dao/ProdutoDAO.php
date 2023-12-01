@@ -3,22 +3,19 @@ namespace Application\dao;
 
 use Application\models\Produto;
 
-class ProdutoDAO
-{
+class ProdutoDAO{
     private $conexao;
 
-    public function __construct()
-    {
+    public function __construct(){
         try {
-            $this->conexao = new \PDO("mysql:host=localhost;dbname=loja", "root", "sucesso");
+            $this->conexao = new \PDO("mysql:host=localhost;dbname=loja", "root", "leonardo12");
             $this->conexao->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {
             echo "Erro na conexão: " . $e->getMessage();
         }
     }
 
-    public function salvar($produto)
-    {
+    public function salvar($produto){
         try {
             $nome = $produto->getNome();
             $marca = $produto->getMarca();
@@ -49,8 +46,7 @@ class ProdutoDAO
                 $produto = new Produto($row["nome"], $row["marca"], $row["preco"], $row["imagem"]);
                 $produto->setCodigo($row["codigo"]);
                 array_push($produtos, $produto);
-            }
-
+            } 
             return $produtos;
         } catch (\PDOException $e) {
             echo "Erro ao recuperar produtos: " . $e->getMessage();
@@ -76,8 +72,7 @@ class ProdutoDAO
         }
     }
 
-    public function atualizar($produto)
-    {
+    public function atualizar($produto){
         try {
             $codigo = $produto->getCodigo();
             $nome = $produto->getNome();
@@ -101,8 +96,7 @@ class ProdutoDAO
         }
     }
 
-    public function deletar($id)
-    {
+    public function deletar($id){
         try {
             $stmt = $this->conexao->prepare("DELETE FROM produtos WHERE codigo = :id");
             $stmt->bindParam(':id', $id);

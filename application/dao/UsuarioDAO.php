@@ -59,6 +59,7 @@ class UsuarioDAO {
 
         return $usuario;
     }
+	
     public function buscarPorTermo($termo) {
         $conexao = new Conexao();
         $conn = $conexao->getConexao();

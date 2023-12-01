@@ -10,8 +10,9 @@ include $base . '\..\layout\menu.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-    <style>
-    body {
+
+<style>
+  body {
         font-family: 'Arial', sans-serif;
         background-color: #f4f4f4;
         margin: 0;
@@ -73,10 +74,11 @@ include $base . '\..\layout\menu.php';
     </style>
 </head>
 
+
 <body>
     <h1>Bem-Vindo</h1>
     <hr />
-    <p>Lista de produtos</p>
+    <h2>Lista de produtos</h2>
     <?php
     if (isset($data["msg-valido"])) {
         ?>
@@ -92,27 +94,20 @@ include $base . '\..\layout\menu.php';
         <tbody>
 
             <?php
-            if (isset($data['produtos']))
+            if (isset($data['produtos'])){
                 foreach ($data['produtos'] as $produto) { ?>
                     <tr>
-                        <td>
-                            <?= $produto->getNome() ?>
-                        </td>
-                        <td>
-                            <?= $produto->getMarca() ?>
-                        </td>
-                        <td>R$:&nbsp;
-                            <?= $produto->getPreco() ?>.00
-                        </td>
-                        <td><img src="<?= $produto->getImagem() ?>" alt="Sem imagem"></td>
-                    </tr>
+                        <td><?= $produto->getNome() ?></td>
+                        <td><?= $produto->getMarca() ?></td>
+                        <td>R$:<?= $produto->getPreco() ?></td>
+                        <td><img src="<?= $produto->getImagem() ?>" alt="Sem imagem" style="width: 150px;  height: auto"></td>
+					</tr>
                 <?php }
-            else { ?>
+            }else { ?>
                 <tr>
                     <td colspan="4">Nenhum produto cadastrado</td>
                 </tr>
-            <?php }
-                ?>
+            <?php } ?>
         </tbody>
     </table>
 </body>

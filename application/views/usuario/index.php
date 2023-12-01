@@ -60,7 +60,7 @@ include $base . '\..\layout\menu.php';
 		display: inline-block;
 		border: none;
 		cursor: pointer;
-		font-weight: bold;
+		<!-- font-weight: bold; -->
 		margin-right: 10px;
 		transition: background-color 0.3s;
 	}
@@ -99,11 +99,34 @@ include $base . '\..\layout\menu.php';
                     <td><?= $usuario->getCpf() ?></td>
                     <td><?= $usuario->getEmail() ?></td>
                     <td>
+					
+					<!-- Botão - Editar Usuário -->
                         <a href="/usuario/iniciarEditar/<?= $usuario->getCodigo() ?>" class="acao-botao-azul">Editar Usuário</a>
-                        <form action="/usuario/deletar" method="post" style="display: inline;">
+                        
+					<!-- Botão - Deletar Usuário -->
+						<form action="/usuario/deletar" method="POST" style="display: inline;">
                             <input type="hidden" value="<?= $usuario->getCodigo() ?>" name="codigo" />
-                            <input type="submit" value="Excluir Usuário" class="acao-botao-azul" />
-                        </form>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Excluir
+                            </button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Exclusão</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Você deseja mesmo excluiar o usuário? 
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                                    <button type="submit" class="btn btn-primary">Sim</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+						</form>
                     </td>
                 </tr>
             <?php } ?>

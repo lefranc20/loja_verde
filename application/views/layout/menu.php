@@ -77,10 +77,10 @@ if (!isset($_SESSION))
         } else {
             ?>
             <li class="nav-item">
-                <a class="nav-link" href="/usuario/cadastrar">Crie a sua conta</a>
+                <a class="nav-link" href="/login/">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/login/">Login</a>
+                <a class="nav-link" href="/usuario/cadastrar">Crie a sua conta</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/home/index">Início</a>

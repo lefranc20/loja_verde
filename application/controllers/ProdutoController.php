@@ -44,8 +44,7 @@ class ProdutoController extends Controller
         $this->view('produto/editar', ["produto" => $produto]);
     }
 
-    public function atualizar()
-    {
+    public function atualizar(){
         //RECEBE OS DADOS
         $codigo = filter_input(INPUT_POST, "codigo");
         $nome = filter_input(INPUT_POST, "nome");
@@ -64,11 +63,16 @@ class ProdutoController extends Controller
         } else {
             $msg = "Erro ao editar";
         }
-        $this->view("produto/editar", ["msg" => $msg, "produto" => $produtoAtualizado]);
+        // Mostra a mensagem de produto atualizado com sucesso na própria página do produto/editar.php
+//		$this->view("produto/editar", ["msg" => $msg, "produto" => $produtoAtualizado]);
+        
+		// redireciona para a página inicial (produto/index)
+		//$this->view("produto/index", ["msg" => $msg, "produto" => $produtoAtualizado]);
+		header("Refresh:3; url=index");
+		echo 'Você irá ser redirecionado em 3 segundos. Se não, clique <a href="index.php">aqui</a>.';
     }
 
-    public function deletar()
-    {
+    public function deletar(){
         $codigo = filter_input(INPUT_POST, "codigo");
         $produtoDAO = new ProdutoDAO();
         if ($produtoDAO->deletar($codigo)) {
