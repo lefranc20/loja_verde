@@ -8,7 +8,7 @@ class ProdutoDAO{
 
     public function __construct(){
         try {
-            $this->conexao = new \PDO("mysql:host=localhost;dbname=loja", "root", "leonardo12");
+            $this->conexao = new \PDO("mysql:host=localhost;dbname=loja", "root", "sucesso");
             $this->conexao->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {
             echo "Erro na conexão: " . $e->getMessage();
