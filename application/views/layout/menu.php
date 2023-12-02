@@ -61,7 +61,7 @@ if (!isset($_SESSION))
                 <a class="nav-link active" aria-current="page" href="/home/index">Início</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/login/logout">logout</a>
+                <a class="nav-link active" aria-current="page" href="/login/logout">Logout</a>
             </li>
 			<!-- Alterar para condizer caso um usuário não exista mais -->
             <li class="nav-item">

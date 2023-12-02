@@ -85,7 +85,7 @@ include $base . '\..\layout\menu.php';
 		<?php endforeach; ?>
 	</div>
 	<?php else: ?>
-	<p>Nenhum produto cadastrado.</p>
+		<p>Nenhum produto cadastrado.</p>
 	<?php endif; ?>
 
 </body>
