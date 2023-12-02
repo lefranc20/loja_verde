@@ -7,19 +7,16 @@ use Application\models\Usuario;
 use Application\dao\ProdutoDAO;
 use Application\models\Produto;
 
-class LoginController extends Controller
-{
+// Esta classe, e todos os métodos e variáveis dentro dela, são compartilhados com o UsuarioDAO
+class LoginController extends Controller{
 
-    public function index()
-    {
+    public function index(){
         $this->view('login/index');
     }
 
-    public function autenticar_login()
-    {
+    public function autenticar_login(){
         $login = $_POST['email'];
         $senha_login = $_POST['senha'];
-
 
         $usuarioDAO = new UsuarioDAO();
         $usuario = $usuarioDAO->buscarPorEmailOrCpf($login);
@@ -45,8 +42,7 @@ class LoginController extends Controller
         }
     }
 
-    public function logout()
-    {
+    public function logout(){
         if (isset($_SESSION)) {
             session_unset();
             session_destroy();

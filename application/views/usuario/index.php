@@ -52,21 +52,26 @@ include $base . '\..\layout\menu.php';
 		color: #fff;
 	}
 
-	.acao-botao-azul {
-		background-color: #007bff;
-		color: #fff;
-		padding: 5px 10px;
-		text-decoration: none;
-		display: inline-block;
-		border: none;
-		cursor: pointer;
-		<!-- font-weight: bold; -->
-		margin-right: 10px;
-		transition: background-color 0.3s;
+	.botaoDeAcao {
+			background-color: #007bff;
+			color: #fff;
+			padding: 5px 10px;
+			text-decoration: none;
+			display: inline-block;
+			border: none;
+			cursor: pointer;
+			<!-- font-weight: bold; -->
+			margin-right: 10px;
+			transition: background-color 0.3s;
+			border-radius: 6px;
 	}
 
-	.acao-botao-azul:hover {
-		background-color: #0056b3;
+	.botaoDeAcao: hover {
+			background-color: #0056b3;
+	}
+	
+	#botaoExcluir{
+			background-color: #D22026;
 	}
 </style>
 <body>
@@ -82,7 +87,7 @@ include $base . '\..\layout\menu.php';
     <?php if (isset($data['msg'])) { ?>
         <div class="alert alert-danger" role="alert">Usuário removido com Sucesso</div>
     <?php } ?>
-    <p><a href="/usuario/cadastrar" class="acao-botao-azul">Adicionar Usuário</a></p>
+    <p><a href="/usuario/cadastrar" class="botaoDeAcao">Adicionar Usuário</a></p>
     <table>
         <thead>
             <th>Código</th>
@@ -101,12 +106,12 @@ include $base . '\..\layout\menu.php';
                     <td>
 					
 					<!-- Botão - Editar Usuário -->
-                        <a href="/usuario/iniciarEditar/<?= $usuario->getCodigo() ?>" class="acao-botao-azul">Editar Usuário</a>
+                        <a href="/usuario/iniciarEditar/<?= $usuario->getCodigo() ?>" class="botaoDeAcao">Editar Usuário</a>
                         
 					<!-- Botão - Deletar Usuário -->
 						<form action="/usuario/deletar" method="POST" style="display: inline;">
                             <input type="hidden" value="<?= $usuario->getCodigo() ?>" name="codigo" />
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button type="button" id="botaoExcluir" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Excluir
                             </button>
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

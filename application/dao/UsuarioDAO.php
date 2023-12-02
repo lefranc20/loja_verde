@@ -4,8 +4,6 @@ namespace Application\dao;
 use Application\models\Usuario;
 
 class UsuarioDAO {
-    // ... (código existente)
-
     // Create (C)
     public function salvar($usuario) {
         $conexao = new Conexao();
@@ -60,14 +58,14 @@ class UsuarioDAO {
         return $usuario;
     }
 	
-    public function buscarPorTermo($termo) {
+    public function buscarPorNome($nomeTermo) {
         $conexao = new Conexao();
         $conn = $conexao->getConexao();
     
         // Use prepared statements para evitar injeção de SQL
         $stmt = $conn->prepare("SELECT * FROM usuarios WHERE nome LIKE ?");
-        $termo = "%" . $termo . "%";
-        $stmt->bind_param("s", $termo);
+        $nomeTermo = "%" . $nomeTermo . "%";
+        $stmt->bind_param("s", $nomeTermo);
         $stmt->execute();
     
         $result = $stmt->get_result();
@@ -151,7 +149,7 @@ class UsuarioDAO {
         }
     }
 	
-    // Autenticação
+    // Autenticação TESTE (antiga, para referência)
     // public function autenticar($email, $senha) {
     //     $conexao = new Conexao();
     //     $conn = $conexao->getConexao();

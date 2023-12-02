@@ -5,22 +5,17 @@ use Application\core\Controller;
 use Application\dao\ProdutoDAO;
 use Application\models\Produto;
 
-class ProdutoController extends Controller
-{
-
-    public function index()
-    {
+class ProdutoController extends Controller{
+    public function index(){
         $produtoDAO = new ProdutoDAO();
         $produtos = $produtoDAO->findAll();
 
         $this->view('produto/index', ['produtos' => $produtos]);
     }
-    public function cadastrar()
-    {
+    public function cadastrar(){
         $this->view('produto/cadastrar');
     }
-    public function salvar()
-    {
+    public function salvar(){
         $nome = $_POST['nome_produto'];
         $marca = $_POST['marca'];
         $preco = $_POST['preco'];
@@ -32,11 +27,9 @@ class ProdutoController extends Controller
         $produtoDAO->salvar($produto);
 
         $this->view('produto/cadastrar', ["cdpr" => "Produto criado com Sucesso!"]);
-
     }
 
-    public function iniciarEditar($codigo)
-    {
+    public function iniciarEditar($codigo){
         // 1 - Buscar os dados
         $produtoDAO = new ProdutoDAO();
         $produto = $produtoDAO->findById($codigo);
@@ -68,7 +61,7 @@ class ProdutoController extends Controller
         
 		// redireciona para a página inicial (produto/index)
 		//$this->view("produto/index", ["msg" => $msg, "produto" => $produtoAtualizado]);
-		header("Refresh:3; url=index");
+		header("Refresh:3; url=../index");
 		echo 'Você irá ser redirecionado em 3 segundos. Se não, clique <a href="index.php">aqui</a>.';
     }
 
@@ -83,6 +76,5 @@ class ProdutoController extends Controller
         $produtos = $produtoDAO->findAll();
         $this->view("produto/index", ["msg-deletar" => $msg, "produtos" => $produtos]);
     }
-
 }
 ?>

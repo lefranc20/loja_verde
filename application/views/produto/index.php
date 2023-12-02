@@ -53,7 +53,7 @@
 			background-color: #007bff;
 			color: #fff;
 		}
-		.acao-botao-azul {
+		.botaoDeAcao {
 			background-color: #007bff;
 			color: #fff;
 			padding: 5px 10px;
@@ -67,17 +67,21 @@
 			border-radius: 6px;
 		}
 
-		.acao-botao-azul:hover {
+		.botaoDeAcao: hover {
 			background-color: #0056b3;
+		}
+		
+		#botaoExcluir{
+			background-color: #D22026;
 		}
 	</style>
 </head>
 <body>
-    <h1>Lista de Produtos</h1>
+    <h1>Lista de Produtos Cadastrados no Sistema</h1>
     <?php if (isset($data['msg-deletar'])) { ?>
         <div class="alert alert-danger" role="alert">Produto deletado com sucesso</div>
     <?php } ?>
-    <p><a href="/produto/cadastrar" class="acao-botao-azul">Adicionar Produto</a></p>
+    <p><a href="/produto/cadastrar" class="botaoDeAcao">Adicionar Produto</a></p>
     <table>
         <thead>
             <th>Código</th>
@@ -97,12 +101,12 @@
                     <td><img src="<?= $produto->getImagem() ?>" alt="Sem imagem" style="width: 150px;  height: auto"></td>
                     <td>
 						<!-- Botão de Editar -->
-                        <a href="/produto/iniciarEditar/<?= $produto->getCodigo() ?>" class="acao-botao-azul">Editar</a>
+                        <a href="/produto/iniciarEditar/<?= $produto->getCodigo() ?>" class="botaoDeAcao">Editar</a>
 						
 						<!-- Botão de Excluir -->
                         <form action="/produto/deletar" method="POST" style="display: inline;">
                             <input type="hidden" value="<?= $produto->getCodigo() ?>" name="codigo" />
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button type="button" id="botaoExcluir" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Excluir
                             </button>
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

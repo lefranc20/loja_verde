@@ -29,11 +29,11 @@ class UsuarioController extends Controller {
         $this->view('usuario/cadastrar', ["msg-cadastrado" => "Cadastro com sucesso!"]);
     }
     public function buscar() {
-        // Se o termo de busca estiver presente no GET
+        // Caso o termo de busca estiver presente no GET
         if (isset($_GET['search'])) {
-            $termoBusca = $_GET['search'];
+            $buscaNome = $_GET['search'];
             $usuarioDAO = new UsuarioDAO();
-            $usuariosEncontrados = $usuarioDAO->buscarPorTermo($termoBusca);
+            $usuariosEncontrados = $usuarioDAO->buscarPorNome($buscaNome);
             $this->view('usuario/index', ['usuarios' => $usuariosEncontrados]);
         } else {
             // Se nenhum termo de busca estiver presente, redirecione para a página principal

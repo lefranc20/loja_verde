@@ -18,7 +18,7 @@ if (!isset($_SESSION))
     }
 
     .navbar {
-        background-color: #606060;
+        background-color: #202329;
         padding: 10px;
     }
 
@@ -29,8 +29,8 @@ if (!isset($_SESSION))
     }
 
     .nav-link:hover {
-        color: #aaa;
-        /* Cor quando hover (passe o mouse) */
+        color: #AAD3FF;
+        /* Cor muda passar o mouse por cima */
     }
 
     .active {
@@ -63,6 +63,7 @@ if (!isset($_SESSION))
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/login/logout">logout</a>
             </li>
+			<!-- Alterar para condizer caso um usuário não exista mais -->
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page">
                     <?= $user ?>

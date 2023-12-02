@@ -54,62 +54,42 @@ include $base . '\..\layout\menu.php';
         background-color: #007bff;
         color: #fff;
     }
-
-    .acao-botao-azul {
-        background-color: #007bff;
-        color: #fff;
-        padding: 5px 10px;
-        text-decoration: none;
-        display: inline-block;
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
-        margin-right: 10px;
-        transition: background-color 0.3s;
-    }
-
-    .acao-botao-azul:hover {
-        background-color: #0056b3;
-    }
     </style>
 </head>
 
 
 <body>
-    <h1>Bem-Vindo</h1>
+    <h1>Bem-Vindo!</h1>
     <hr />
-    <h2>Lista de produtos</h2>
+    <h2>Veja nossa lista de produtos!</h2>
     <?php
     if (isset($data["msg-valido"])) {
         ?>
         <div class="alert alert-success" role="alert">Sucesso ao autenticar</div>
     <?php } ?>
-    <table class="table">
-        <thead>
-            <th>Nome</th>
-            <th>Marca</th>
-            <th>Preço</th>
-            <th>Imagem</th>
-        </thead>
-        <tbody>
+	
+	<!-- Visualização dos produtos estilo cards no home/index -->
+	<?php if (isset($data['produtos'])): ?>
+	<div class="row">
+		<?php foreach ($data['produtos'] as $produto): ?>
+			<div class="col-md-2 mb-3">
+				<div class="card">
+					<img src="<?= $produto->getImagem() ?>" class="card-img-top" alt="Sem imagem" style="width: 100%;">
+					<div class="card-body">
+						<h5 class="card-title"><?= $produto->getNome() ?></h5>
+						<p class="card-text">Marca: <?= $produto->getMarca() ?></p>
+						<p class="card-text">Preço: R$<?= $produto->getPreco() ?></p>
+					</div>
+				</div>
+			</div>
+		<?php endforeach; ?>
+	</div>
+	<?php else: ?>
+	<p>Nenhum produto cadastrado.</p>
+	<?php endif; ?>
 
-            <?php
-            if (isset($data['produtos'])){
-                foreach ($data['produtos'] as $produto) { ?>
-                    <tr>
-                        <td><?= $produto->getNome() ?></td>
-                        <td><?= $produto->getMarca() ?></td>
-                        <td>R$:<?= $produto->getPreco() ?></td>
-                        <td><img src="<?= $produto->getImagem() ?>" alt="Sem imagem" style="width: 150px;  height: auto"></td>
-					</tr>
-                <?php }
-            }else { ?>
-                <tr>
-                    <td colspan="4">Nenhum produto cadastrado</td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
 </body>
-
 </html>
+
+
+
